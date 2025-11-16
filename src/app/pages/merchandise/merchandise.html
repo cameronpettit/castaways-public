@@ -7,140 +7,34 @@
   <!-- Introduction Section -->
   <div class="text-center my-5">
     <h3 class="mb-4">CASTAWAYS MERCHANDISE</h3>
-    <h4 class="mb-4 text-primary">THE MERCHANDISE STORE IS NOW OPEN!</h4>
-    <p>
-      This year's order form will be open until <strong>November 16th @5pm</strong>, with the goal of having everything
-      arrive by Christmas. The toques and pet bandanas may be ready later than the rest of the items.
-    </p>
+    <div *ngIf="now < endDate">
+      <h4 class="mb-4 text-primary">THE MERCHANDISE STORE IS NOW OPEN!</h4>
+      <p>
+        This year's order form will be open until <strong>November 16th @5pm</strong>, with the goal of having
+        everything
+        arrive by Christmas. The toques and pet bandanas may be ready later than the rest of the items.
+      </p>
 
-    <p>
-      Follow the link below to the order form to place your order.
-    </p>
+      <p>
+        Follow the link below to the order form to place your order.
+      </p>
 
-    <p>
-      Please pay by sending an e-transfer with the total amount of the order to <a
-        href="mailto:payments@castawaysfc.org"
-      >payments@castawaysfc.org</a>. All prices include tax - the price you see, is the price you will pay.
-      <strong>Please not that your order is not finalized until payment is received.</strong>
-    </p>
+      <p>
+        Please pay by sending an e-transfer with the total amount of the order to <a
+          href="mailto:payments@castawaysfc.org"
+        >payments@castawaysfc.org</a>. All prices include tax - the price you see, is the price you will pay.
+        <strong>Please not that your order is not finalized until payment is received.</strong>
+      </p>
 
-    <p>
-      Note that some of the items are dependent on meeting a minimum order. You will be contacted and refunded if one of
-      the items that you purchased does not meet the minimum demand.
-    </p>
-
-    <button
-      type="button"
-      class="btn order-now-btn w-100"
-      (click)="openOrderForm()"
-    >
-      <div class="btn-content">
-        <i class="bi bi-cart-plus-fill me-2"></i>
-        <span class="btn-text">Order Now</span>
-        <i class="bi bi-arrow-right ms-2 arrow-icon"></i>
-      </div>
-      <div class="btn-shimmer"></div>
-    </button>
-
-
-    <!-- Merchandise Sections -->
-    <div class="merchandise-sections">
-      <!-- Long Sleeves Section -->
-      <div class="merchandise-section mb-5">
-        <div class="section-header text-center mb-4">
-          <h3 class="section-title">
-            Long-Sleeve Training Shirts
-          </h3>
-          <p class="text-muted">Available in women's and men's cut. The women's cut is only available with a v-neck.
-            There
-            is also a
-            "coal grey" colour available that is the same as the short sleeves below.</p>
-        </div>
-
-        <div class="row g-4">
-          <div
-            class="col-lg-3 col-md-6 col-sm-6"
-            *ngFor="let item of getItemsByCategory('long-sleeves')"
-          >
-            <div class="merchandise-card">
-              <div class="image-container">
-                <div class="image-overlay">
-                  <div class="overlay-content">
-                  </div>
-                </div>
-                <img
-                  [src]="item.image"
-                  [alt]="item.id"
-                  class="merchandise-image"
-                >
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- Short Sleeves Section -->
-      <div class="merchandise-section mb-5">
-        <div class="section-header text-center mb-4">
-          <h3 class="section-title">
-            Short-Sleeve Training Shirts
-          </h3>
-        </div>
-
-        <div class="row g-4">
-          <div
-            class="col-lg-3 col-md-6 col-sm-6"
-            *ngFor="let item of getItemsByCategory('short-sleeves')"
-          >
-            <div class="merchandise-card">
-              <div class="image-container">
-                <div class="image-overlay">
-                  <div class="overlay-content">
-                  </div>
-                </div>
-                <img
-                  [src]="item.image"
-                  [alt]="item.id"
-                  class="merchandise-image"
-                >
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- Hoodies Section -->
-      <div class="merchandise-section mb-5">
-        <div class="section-header text-center mb-4">
-          <h3 class="section-title">
-            Hoodies
-          </h3>
-          <p class="text-muted">Available with big and small logos.</p>
-        </div>
-
-        <div class="row g-4">
-          <div
-            class="col-lg-3 col-md-6 col-sm-6"
-            *ngFor="let item of getItemsByCategory('hoodies')"
-          >
-            <div class="merchandise-card">
-              <div class="image-container">
-                <div class="image-overlay">
-                  <div class="overlay-content">
-                  </div>
-                </div>
-                <img
-                  [src]="item.image"
-                  [alt]="item.id"
-                  class="merchandise-image"
-                >
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <p>
+        Note that some of the items are dependent on meeting a minimum order. You will be contacted and refunded if one
+        of
+        the items that you purchased does not meet the minimum demand.
+      </p>
 
       <button
         type="button"
-        class="btn order-now-btn w-100 mb-5"
+        class="btn order-now-btn w-100"
         (click)="openOrderForm()"
       >
         <div class="btn-content">
@@ -151,111 +45,230 @@
         <div class="btn-shimmer"></div>
       </button>
 
-      <!-- Crewnecks Section -->
-      <div class="merchandise-section mb-5">
-        <div class="section-header text-center mb-4">
-          <h3 class="section-title">
-            Crewnecks
-          </h3>
-          <p class="text-muted">Available with big and small logos.</p>
-        </div>
 
-        <div class="row g-4">
-          <div
-            class="col-lg-3 col-md-6 col-sm-6"
-            *ngFor="let item of getItemsByCategory('crewnecks')"
-          >
-            <div class="merchandise-card">
-              <div class="image-container">
-                <div class="image-overlay">
-                  <div class="overlay-content">
+      <!-- Merchandise Sections -->
+      <div class="merchandise-sections">
+        <!-- Long Sleeves Section -->
+        <div class="merchandise-section mb-5">
+          <div class="section-header text-center mb-4">
+            <h3 class="section-title">
+              Long-Sleeve Training Shirts
+            </h3>
+            <p class="text-muted">Available in women's and men's cut. The women's cut is only available with a v-neck.
+              There
+              is also a
+              "coal grey" colour available that is the same as the short sleeves below.</p>
+          </div>
+
+          <div class="row g-4">
+            <div
+              class="col-lg-3 col-md-6 col-sm-6"
+              *ngFor="let item of getItemsByCategory('long-sleeves')"
+            >
+              <div class="merchandise-card">
+                <div class="image-container">
+                  <div class="image-overlay">
+                    <div class="overlay-content">
+                    </div>
                   </div>
+                  <img
+                    [src]="item.image"
+                    [alt]="item.id"
+                    class="merchandise-image"
+                  >
                 </div>
-                <img
-                  [src]="item.image"
-                  [alt]="item.id"
-                  class="merchandise-image"
-                >
               </div>
             </div>
           </div>
         </div>
-      </div>
-      <!-- Touques Section -->
-      <div class="merchandise-section mb-5">
-        <div class="section-header text-center mb-4">
-          <h3 class="section-title">
-            Touques
-          </h3>
-          <p class="text-muted">Please note that the touques have a longer lead time than the other itesm and may arrive
-            after Christmas.</p>
-        </div>
+        <!-- Short Sleeves Section -->
+        <div class="merchandise-section mb-5">
+          <div class="section-header text-center mb-4">
+            <h3 class="section-title">
+              Short-Sleeve Training Shirts
+            </h3>
+          </div>
 
-        <div class="row g-4 justify-content-center">
-          <div
-            class="col-lg-3 col-md-6 col-sm-6"
-            *ngFor="let item of getItemsByCategory('touques')"
-          >
-            <div class="merchandise-card">
-              <div class="image-container">
-                <div class="image-overlay">
-                  <div class="overlay-content">
+          <div class="row g-4">
+            <div
+              class="col-lg-3 col-md-6 col-sm-6"
+              *ngFor="let item of getItemsByCategory('short-sleeves')"
+            >
+              <div class="merchandise-card">
+                <div class="image-container">
+                  <div class="image-overlay">
+                    <div class="overlay-content">
+                    </div>
                   </div>
+                  <img
+                    [src]="item.image"
+                    [alt]="item.id"
+                    class="merchandise-image"
+                  >
                 </div>
-                <img
-                  [src]="item.image"
-                  [alt]="item.id"
-                  class="merchandise-image"
-                >
               </div>
             </div>
           </div>
         </div>
-      </div>
-      <!-- Other Section -->
-      <div class="merchandise-section mb-5">
-        <div class="section-header text-center mb-4">
-          <h3 class="section-title">
-            Other Items
-          </h3>
-          <p class="text-muted">There are backpacks, socks and pet bandanas also available! Please note the pet bandana
-            will include a screen print logo.</p>
-        </div>
+        <!-- Hoodies Section -->
+        <div class="merchandise-section mb-5">
+          <div class="section-header text-center mb-4">
+            <h3 class="section-title">
+              Hoodies
+            </h3>
+            <p class="text-muted">Available with big and small logos.</p>
+          </div>
 
-        <div class="row g-4 justify-content-center">
-          <div
-            class="col-lg-3 col-md-6 col-sm-6"
-            *ngFor="let item of getItemsByCategory('other')"
-          >
-            <div class="merchandise-card">
-              <div class="image-container">
-                <div class="image-overlay">
-                  <div class="overlay-content">
+          <div class="row g-4">
+            <div
+              class="col-lg-3 col-md-6 col-sm-6"
+              *ngFor="let item of getItemsByCategory('hoodies')"
+            >
+              <div class="merchandise-card">
+                <div class="image-container">
+                  <div class="image-overlay">
+                    <div class="overlay-content">
+                    </div>
                   </div>
+                  <img
+                    [src]="item.image"
+                    [alt]="item.id"
+                    class="merchandise-image"
+                  >
                 </div>
-                <img
-                  [src]="item.image"
-                  [alt]="item.id"
-                  class="merchandise-image"
-                >
               </div>
             </div>
           </div>
         </div>
-      </div>
 
-      <button
-        type="button"
-        class="btn order-now-btn w-100 mb-5"
-        (click)="openOrderForm()"
-      >
-        <div class="btn-content">
-          <i class="bi bi-cart-plus-fill me-2"></i>
-          <span class="btn-text">Order Now</span>
-          <i class="bi bi-arrow-right ms-2 arrow-icon"></i>
+        <button
+          type="button"
+          class="btn order-now-btn w-100 mb-5"
+          (click)="openOrderForm()"
+        >
+          <div class="btn-content">
+            <i class="bi bi-cart-plus-fill me-2"></i>
+            <span class="btn-text">Order Now</span>
+            <i class="bi bi-arrow-right ms-2 arrow-icon"></i>
+          </div>
+          <div class="btn-shimmer"></div>
+        </button>
+
+        <!-- Crewnecks Section -->
+        <div class="merchandise-section mb-5">
+          <div class="section-header text-center mb-4">
+            <h3 class="section-title">
+              Crewnecks
+            </h3>
+            <p class="text-muted">Available with big and small logos.</p>
+          </div>
+
+          <div class="row g-4">
+            <div
+              class="col-lg-3 col-md-6 col-sm-6"
+              *ngFor="let item of getItemsByCategory('crewnecks')"
+            >
+              <div class="merchandise-card">
+                <div class="image-container">
+                  <div class="image-overlay">
+                    <div class="overlay-content">
+                    </div>
+                  </div>
+                  <img
+                    [src]="item.image"
+                    [alt]="item.id"
+                    class="merchandise-image"
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="btn-shimmer"></div>
-      </button>
+        <!-- Touques Section -->
+        <div class="merchandise-section mb-5">
+          <div class="section-header text-center mb-4">
+            <h3 class="section-title">
+              Touques
+            </h3>
+            <p class="text-muted">Please note that the touques have a longer lead time than the other itesm and may
+              arrive
+              after Christmas.</p>
+          </div>
+
+          <div class="row g-4 justify-content-center">
+            <div
+              class="col-lg-3 col-md-6 col-sm-6"
+              *ngFor="let item of getItemsByCategory('touques')"
+            >
+              <div class="merchandise-card">
+                <div class="image-container">
+                  <div class="image-overlay">
+                    <div class="overlay-content">
+                    </div>
+                  </div>
+                  <img
+                    [src]="item.image"
+                    [alt]="item.id"
+                    class="merchandise-image"
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Other Section -->
+        <div class="merchandise-section mb-5">
+          <div class="section-header text-center mb-4">
+            <h3 class="section-title">
+              Other Items
+            </h3>
+            <p class="text-muted">There are backpacks, socks and pet bandanas also available! Please note the pet
+              bandana
+              will include a screen print logo.</p>
+          </div>
+
+          <div class="row g-4 justify-content-center">
+            <div
+              class="col-lg-3 col-md-6 col-sm-6"
+              *ngFor="let item of getItemsByCategory('other')"
+            >
+              <div class="merchandise-card">
+                <div class="image-container">
+                  <div class="image-overlay">
+                    <div class="overlay-content">
+                    </div>
+                  </div>
+                  <img
+                    [src]="item.image"
+                    [alt]="item.id"
+                    class="merchandise-image"
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <button
+          type="button"
+          class="btn order-now-btn w-100 mb-5"
+          (click)="openOrderForm()"
+        >
+          <div class="btn-content">
+            <i class="bi bi-cart-plus-fill me-2"></i>
+            <span class="btn-text">Order Now</span>
+            <i class="bi bi-arrow-right ms-2 arrow-icon"></i>
+          </div>
+          <div class="btn-shimmer"></div>
+        </button>
+      </div>
+      <div *ngIf="now > endDate">
+        <h4 class="mb-4 text-danger">THE MERCHANDISE STORE IS NOW CLOSED FOR 2025 ORDERS.</h4>
+        <p>
+          Thank you to everyone who placed an order! If you have any questions about your order, please contact the
+          merchandise team!
+        </p>
+      </div>
 
       <!-- Note -->
       <p class="lead">

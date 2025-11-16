@@ -17,6 +17,9 @@ interface MerchandiseItem {
 export class MerchandiseComponent {
   // URL for the external order form
   orderFormUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSc0w7yoQYBAGPcX_VKqDRz1Pza8t4rpUBqz8l8Al6J00bD8GA/viewform?usp=header';
+  public endDate = new Date('2025-11-16T17:00:00');
+  public now = new Date();
+
   merchandiseItems: MerchandiseItem[] = [
     {
       id: 'long-sleeve-m-navy',
