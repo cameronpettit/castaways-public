@@ -28,10 +28,10 @@ exports.handler = async (event) => {
       continuationToken = null
     } = event.queryStringParameters || {};
 
-    if (!validPaths.includes(prefix)) {
+    if (!validPaths.some(path => prefix.startsWith(path))) {
       return {
-        statusCode: 400,
-        body: JSON.stringify({ message: 'Invalid prefix parameter.' })
+      statusCode: 400,
+      body: JSON.stringify({ message: 'Invalid prefix parameter.' })
       };
     }
 

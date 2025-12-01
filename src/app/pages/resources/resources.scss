@@ -1,0 +1,118 @@
+// Documents Table
+.table-responsive {
+  margin-top: 1rem;
+
+  .table {
+    thead {
+      background-color: #f8f9fa;
+
+      th {
+        font-weight: 600;
+        color: var(--bs-primary);
+        border-bottom: 2px solid var(--bs-primary);
+        padding: 1rem;
+      }
+    }
+
+    tbody {
+      .document-row {
+        transition: all 0.2s ease;
+
+        &:hover {
+          background-color: #f8f9fa;
+          transform: scale(1.01);
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        td {
+          padding: 1rem;
+          vertical-align: middle;
+        }
+
+        .btn-group {
+          .btn {
+            transition: all 0.3s ease;
+
+            &:hover {
+              transform: translateY(-2px);
+              box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// Season Selector
+.form-select {
+  transition: all 0.3s ease;
+
+  &:focus {
+    border-color: var(--bs-primary);
+    box-shadow: 0 0 0 0.25rem rgba(var(--bs-primary-rgb), 0.25);
+  }
+}
+
+// Loading and Error States
+.spinner-border {
+  width: 3rem;
+  height: 3rem;
+}
+
+.alert {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  i.bi-exclamation-triangle-fill {
+    font-size: 1.2rem;
+  }
+}
+
+// Responsive adjustments
+@media (max-width: 768px) {
+  .table-responsive {
+    .table {
+      thead {
+        th {
+          font-size: 0.9rem;
+          padding: 0.75rem 0.5rem;
+        }
+      }
+
+      tbody {
+        td {
+          font-size: 0.85rem;
+          padding: 0.75rem 0.5rem;
+        }
+
+        .btn-group {
+          display: flex;
+          flex-direction: column;
+          width: 100%;
+
+          .btn {
+            margin-bottom: 0.25rem;
+            font-size: 0.8rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .table-responsive {
+    font-size: 0.8rem;
+
+    .table {
+      thead th:nth-child(2),
+      thead th:nth-child(3),
+      tbody td:nth-child(2),
+      tbody td:nth-child(3) {
+        display: none;
+      }
+    }
+  }
+}
