@@ -1,27 +1,139 @@
-<section class="banner-img d-flex justify-content-center">
-  <app-page-header
-    [includeLogo]="true"
-    title="Welcome to Castaways FC"
-    subtitle="The Castaways Football Club is a community-based soccer club that has been serving the Victoria area for over 50 years. We are dedicated to promoting the love of soccer and providing opportunities for adult players of all skill levels to participate in the sport."
-  ></app-page-header>
-</section>
-<section>
-  <div class="container text-center my-4">
-    <h3>IN 2024, CASTAWAYS FC CELEBRATED ITS 50TH ANNIVERSARY!</h3>
-    <img
-      src="/assets/images/castaways_50th_logo.png"
-      class="img-fluid mb-3 border border-1 rounded-5"
-      alt="Castaways 50th Anniversary Logo"
-      width="300px"
-    >
+<!-- Hero Section -->
+<section class="hero-section">
+  <div class="hero-overlay">
+    <div class="container h-100">
+      <div class="row h-100 align-items-center">
+        <div class="col-lg-8 mx-auto text-center">
+          <img
+            src="/assets/images/castaways_web_logo.png"
+            class="img-fluid mb-4 hero-logo"
+            alt="Castaways Logo"
+            width="250px"
+          >
+          <h1 class="display-3 fw-bold text-white mb-3 animate-fade-in">
+            Welcome to Castaways FC
+          </h1>
+          <p class="lead text-white mb-4 animate-fade-in-delay">
+            A Victoria community soccer club for over 50 years.
+          </p>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
-<!-- <button class="btn btn-primary">Primary Button</button>
-<button class="btn btn-secondary">Secondary Button</button>
-<button class="btn btn-info">info Button</button>
-<button class="btn btn-success">success Button</button>
-<button class="btn btn-warning">warning Button</button>
-<button class="btn btn-danger">danger Button</button>
-<button class="btn btn-dark">dark Button</button>
-<button class="btn btn-light">light Button</button> -->
+<!-- Stats Section -->
+<section class="stats-section py-5">
+  <div class="container">
+    <div class="row text-center g-3">
+      <div class="col-6 col-md-4" *ngFor="let stat of stats">
+        <div class="stat-card">
+          <h2 class="stat-value mb-2">{{ stat.value }}</h2>
+          <p class="stat-label text-muted mb-0">{{ stat.label }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 50th Anniversary Celebration -->
+<section class="anniversary-section py-5 bg-light">
+  <div class="container text-center">
+    <div class="row align-items-center">
+      <div class="col-lg-6 mb-4 mb-lg-0">
+        <div class="anniversary-badge">
+          <img
+            src="/assets/images/castaways_50th_logo.png"
+            class="img-fluid rounded-4 shadow-lg"
+            alt="Castaways 50th Anniversary Logo"
+          >
+        </div>
+      </div>
+      <div class="col-lg-6 text-lg-start">
+        <h2 class="display-5 fw-bold mb-3">
+          <i class="bi bi-award-fill text-primary me-2"></i>
+          Celebrating 50 Years!
+        </h2>
+        <p class="lead text-muted mb-4">
+          In 2024, Castaways FC celebrated its 50th anniversary. We are continuing our dedication to promoting the love of soccer and providing opportunities for adult players of all skill levels to participate in the sport.
+        </p>
+        <a routerLink="/about" class="btn btn-primary">
+          <i class="bi bi-book me-2"></i>
+          About the club
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Call to Action Section -->
+<section class="cta-section py-5">
+  <div class="container">
+    <div class="cta-card rounded-4 shadow-lg p-5">
+      <div class="row align-items-center">
+        <div class="col-lg-8 text-center text-lg-start mb-4 mb-lg-0">
+          <h2 class="display-6 fw-bold text-white mb-3">
+           What's happening?
+          </h2>
+          <p class="lead text-white mb-0">
+            See what's planned and how you can get involved.
+          </p>
+        </div>
+        <div class="col-lg-4 text-center text-lg-end">
+          <a routerLink="/events" class="btn btn-light btn-lg px-5">
+            <i class="bi bi-calendar-check-fill me-2"></i>
+            Events
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Latest Updates Section -->
+<section class="updates-section py-5 bg-light">
+  <div class="container">
+    <div class="text-center mb-5">
+      <h2 class="display-5 fw-bold mb-3">Quick Links</h2>
+      <p class="lead text-muted">Find schedules, teams, and club merchandise</p>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="update-card h-100">
+          <div class="update-icon">
+            <i class="bi bi-calendar-check-fill"></i>
+          </div>
+          <h4 class="mb-3">Schedules</h4>
+          <p class="text-muted mb-3">Schedules for individual teams and clubhouse availability.</p>
+          <a routerLink="/events" class="btn btn-outline-primary w-100">
+            View Schedules
+          </a>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="update-card h-100">
+          <div class="update-icon">
+            <i class="bi bi-people-fill"></i>
+          </div>
+          <h4 class="mb-3">Teams</h4>
+          <p class="text-muted mb-3">Browse our teams of all skill levels in each league.</p>
+          <a routerLink="/teams" class="btn btn-outline-primary w-100">
+              View Teams
+          </a>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="update-card h-100">
+          <div class="update-icon">
+            <i class="bi bi-shop"></i>
+          </div>
+          <h4 class="mb-3">Club Merchandise</h4>
+          <p class="text-muted mb-3">Show your Castaways pride with official club clothing and accessories.</p>
+          <a routerLink="/merchandise" class="btn btn-outline-primary w-100">
+            Shop Now
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,12 +1,366 @@
-.banner-img {
-  width: 100%;
-  height: 500px;
-  background-image: url('/assets/images/about-header-bg1.jpg');
-  background-size: cover;
-  background-position: bottom;
+// Section Label
+.section-label {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--bs-primary);
+
+  i {
+    font-size: 1rem;
+  }
 }
 
-.banner-transparent {
-  max-width: 60rem;
-  background-color: rgba(0, 0, 0, 0.3);
+// Who We Are Section
+.who-we-are-section {
+  .image-wrapper {
+    position: relative;
+
+    img {
+      transition: transform 0.3s ease;
+
+      &:hover {
+        transform: scale(1.02);
+      }
+    }
+
+    .image-badge {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: linear-gradient(135deg, var(--bs-primary), #004080);
+      color: white;
+      padding: 1rem 1.5rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+
+      i {
+        font-size: 1.5rem;
+      }
+
+      span {
+        font-weight: 600;
+        font-size: 0.9rem;
+      }
+    }
+  }
+
+  .content-wrapper {
+    h2 {
+      color: var(--bs-dark);
+    }
+  }
+
+  .stats-inline {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+
+    .stat-item {
+      text-align: center;
+
+      .stat-number {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: var(--bs-primary);
+        line-height: 1;
+        margin-bottom: 0.5rem;
+      }
+
+      .stat-label {
+        font-size: 0.875rem;
+        color: var(--bs-secondary);
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+    }
+
+    .stat-divider {
+      width: 2px;
+      height: 50px;
+      background: #e9ecef;
+    }
+  }
+}
+
+// Values Section
+.values-section {
+  .value-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    text-align: center;
+
+    &:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+
+      .value-icon {
+        transform: scale(1.1) rotate(5deg);
+        background: var(--bs-primary);
+
+        i {
+          color: white;
+        }
+      }
+    }
+
+    .value-icon {
+      width: 80px;
+      height: 80px;
+      margin: 0 auto 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #f8f9fa;
+      border-radius: 50%;
+      transition: all 0.3s ease;
+
+      i {
+        font-size: 2rem;
+        color: var(--bs-primary);
+        transition: color 0.3s ease;
+      }
+    }
+
+    h4 {
+      font-weight: 600;
+      color: var(--bs-dark);
+      margin-bottom: 1rem;
+    }
+  }
+}
+
+// Timeline Section
+.journey-section {
+  .timeline {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 0;
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 4px;
+      height: 100%;
+      background: linear-gradient(to bottom, var(--bs-primary), #004080);
+      border-radius: 2px;
+    }
+
+    .timeline-item {
+      position: relative;
+      width: 50%;
+      padding: 0 3rem 4rem 0;
+
+      &.timeline-item-right {
+        margin-left: 50%;
+        padding: 0 0 4rem 3rem;
+
+        .timeline-marker {
+          left: -12px;
+        }
+
+        .timeline-content {
+          text-align: left;
+        }
+      }
+
+      .timeline-marker {
+        position: absolute;
+        right: -12px;
+        top: 0;
+        width: 24px;
+        height: 24px;
+        background: var(--bs-primary);
+        border: 4px solid white;
+        border-radius: 50%;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        z-index: 2;
+      }
+
+      .timeline-content {
+        background: white;
+        padding: 1.5rem;
+        border-radius: 12px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+        text-align: right;
+
+        &:hover {
+          transform: scale(1.05);
+          box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .timeline-year {
+          display: inline-block;
+          background: linear-gradient(135deg, var(--bs-primary), #004080);
+          color: white;
+          padding: 0.5rem 1rem;
+          border-radius: 20px;
+          font-weight: 700;
+          font-size: 0.875rem;
+          margin-bottom: 1rem;
+        }
+
+        h4 {
+          font-weight: 600;
+          color: var(--bs-dark);
+        }
+      }
+    }
+  }
+}
+
+// Become a Member Section
+.become-member-section {
+  .image-wrapper {
+    img {
+      transition: transform 0.3s ease;
+
+      &:hover {
+        transform: scale(1.02);
+      }
+    }
+  }
+
+  .benefits-list {
+    .benefit-item {
+      display: flex;
+      align-items: center;
+      padding: 0.75rem 0;
+      font-size: 1.1rem;
+
+      i {
+        font-size: 1.25rem;
+        flex-shrink: 0;
+      }
+    }
+  }
+}
+
+// Clubhouse Section
+.clubhouse-section {
+  .map-wrapper {
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+  }
+}
+
+// Board Section
+.board-section {
+  // Additional board styling if needed
+}
+
+// Responsive Design
+@media (max-width: 992px) {
+  .stats-inline {
+    justify-content: center;
+
+    .stat-divider {
+      display: none;
+    }
+  }
+
+  .timeline {
+    &::before {
+      left: 20px !important;
+    }
+
+    .timeline-item {
+      width: 100% !important;
+      padding: 0 0 3rem 4rem !important;
+      margin-left: 0 !important;
+
+      &.timeline-item-right {
+        margin-left: 0 !important;
+      }
+
+      .timeline-marker {
+        left: 12px !important;
+        right: auto !important;
+      }
+
+      .timeline-content {
+        text-align: left !important;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .section-label {
+    font-size: 0.75rem;
+
+    i {
+      font-size: 0.875rem;
+    }
+  }
+
+  .who-we-are-section {
+    .image-badge {
+      top: 10px;
+      right: 10px;
+      padding: 0.75rem 1rem;
+
+      i {
+        font-size: 1.25rem;
+      }
+
+      span {
+        font-size: 0.8rem;
+      }
+    }
+
+    .stats-inline {
+      gap: 1rem;
+
+      .stat-item {
+        .stat-number {
+          font-size: 2rem;
+        }
+      }
+    }
+  }
+
+  .value-card {
+    padding: 1.5rem !important;
+
+    .value-icon {
+      width: 60px;
+      height: 60px;
+
+      i {
+        font-size: 1.5rem;
+      }
+    }
+  }
+
+  .timeline {
+    .timeline-item {
+      padding: 0 0 2rem 3rem !important;
+
+      .timeline-content {
+        padding: 1rem;
+      }
+    }
+  }
+
+  .benefits-list {
+    .benefit-item {
+      font-size: 1rem !important;
+    }
+  }
 }

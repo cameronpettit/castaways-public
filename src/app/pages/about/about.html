@@ -1,68 +1,113 @@
 <section>
   <app-page-header
     [includeLogo]="false"
-    title="About"
+    title="About Us"
     subtitle="Castaways FC is an adult soccer club and has been a part of the Victoria soccer community for over 50 years."
     imageUrl="/assets/images/about-header-bg1.jpg"
   ></app-page-header>
 </section>
-<section #whoWeAre class="container my-5">
-  <div class="row d-flex justify-content-center align-items-center">
-    <div class="col-md-6 text-center">
-      <img
-        src="/assets/images/dirty_ball.jpg"
-        class="img-fluid mb-3 border border-1 rounded-5"
-        alt="Castaways Logo"
-        width="500px"
-      >
-    </div>
-    <div class="col-md-6 text-center">
-      <h2 class="mb-3">WHO WE ARE</h2>
-      <p>
-        Castaways FC is a football club run solely by members volunteering their time. We pride ourselves on bringing
-        people together with teamwork and the great experiences and friendships we all make along the way.
-      </p>
-      <p>
-        We currently have 11 teams, 6 women's and 5 men's, ranging throughout the divisions.
-      </p>
-      <button
-        class="btn btn-primary mt-3"
-        routerLink="/teams"
-      >
-        <h4 class="mb-0 px-5">VIEW TEAMS</h4>
-      </button>
-    </div>
-  </div>
-</section>
-<hr>
-<section #becomeAMember class="container my-5">
-  <div class="row d-flex flex-reverse justify-content-center align-items-center">
-    <div class="col-md-6 text-center">
-      <h2 class="mb-4">BECOME A MEMBER</h2>
-      <p>
-        Are you interested in becoming a member of Castaways FC?
-      </p>
-      <p>
-        Contact us to find out more.
-      </p>
-      <button
-        class="btn btn-outline-primary"
-        routerLink="/contact"
-      >
-        <h4 class="mb-0 px-5">CONTACT US</h4>
-      </button>
-    </div>
-    <div class="col-md-6">
-      <img
-        src="/assets/images/goalie.jpg"
-        class="img-fluid mb-3 border border-1 rounded-5"
-        alt="Castaways Logo"
-        width="500px"
-      >
+<section #whoWeAre class="who-we-are-section py-5">
+  <div class="container">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-6">
+        <div class="image-wrapper">
+          <img
+            src="/assets/images/dirty_ball.jpg"
+            class="img-fluid rounded-4 shadow-lg"
+            alt="Soccer ball"
+          >
+          <div class="image-badge">
+            <i class="bi bi-award-fill"></i>
+            <span>50+ Years</span>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="content-wrapper">
+          <div class="section-label mb-3">
+            <i class="bi bi-people-fill me-2"></i>
+            <span>WHO WE ARE</span>
+          </div>
+          <h2 class="display-5 fw-bold mb-4">A Club Built on Community & Passion</h2>
+          <p class="lead text-muted mb-4">
+            Castaways FC is a football club run solely by members volunteering their time. We pride ourselves on bringing
+            people together with teamwork and the great experiences and friendships we all make along the way.
+          </p>
+          <div class="stats-inline mb-4">
+            <div class="stat-item">
+              <div class="stat-number">11</div>
+              <div class="stat-label">Teams</div>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-item">
+              <div class="stat-number">6</div>
+              <div class="stat-label">Women's Teams</div>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-item">
+              <div class="stat-number">5</div>
+              <div class="stat-label">Men's Teams</div>
+            </div>
+          </div>
+          <a routerLink="/teams" class="btn btn-primary btn-lg">
+            <i class="bi bi-grid-3x3-gap-fill me-2"></i>
+            View All Teams
+          </a>
+        </div>
+      </div>
     </div>
   </div>
 </section>
-<hr>
+
+<!-- Become a Member Section -->
+<section #becomeAMember class="become-member-section py-5 bg-light">
+  <div class="container">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-6 order-lg-2">
+        <div class="image-wrapper">
+          <img
+            src="/assets/images/goalie.jpg"
+            class="img-fluid rounded-4 shadow-lg"
+            alt="Goalkeeper"
+          >
+        </div>
+      </div>
+      <div class="col-lg-6 order-lg-1">
+        <div class="content-wrapper">
+          <div class="section-label mb-3">
+            <i class="bi bi-person-plus-fill me-2"></i>
+            <span>JOIN US</span>
+          </div>
+          <h2 class="display-5 fw-bold mb-4">Become a Member</h2>
+          <p class="lead text-muted mb-4">
+            Are you interested in becoming a member of Castaways FC? Whether you're an experienced player or just getting started, we have a team that's right for you.
+          </p>
+          <div class="benefits-list mb-4">
+            <div class="benefit-item">
+              <i class="bi bi-check-circle-fill text-success me-2"></i>
+              <span>Access to our clubhouse and social events</span>
+            </div>
+            <div class="benefit-item">
+              <i class="bi bi-check-circle-fill text-success me-2"></i>
+              <span>Join a welcoming community of soccer lovers</span>
+            </div>
+            <div class="benefit-item">
+              <i class="bi bi-check-circle-fill text-success me-2"></i>
+              <span>Multiple skill levels and divisions available</span>
+            </div>
+          </div>
+          <div class="d-flex gap-3 flex-wrap">
+            <a routerLink="/contact" class="btn btn-outline-primary btn-lg">
+              <i class="bi bi-envelope me-2"></i>
+              Contact Us
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section #whereWeAre>
   <div class="text-center my-5">
     <h2 class="mb-4">WHERE WE ARE</h2>
@@ -84,6 +129,17 @@
   </div>
 </section>
 <hr>
-<section #boardOfDirectors>
-  <app-board-of-directors></app-board-of-directors>
+<!-- Board of Directors Section -->
+<section #boardOfDirectors class="board-section py-5 bg-light">
+  <div class="container">
+    <div class="text-center mb-5">
+      <div class="section-label mb-3">
+        <i class="bi bi-person-badge-fill me-2"></i>
+        <span>LEADERSHIP</span>
+      </div>
+      <h2 class="display-5 fw-bold mb-3">Board of Directors</h2>
+      <p class="lead text-muted">Meet the dedicated volunteers who guide our club</p>
+    </div>
+    <app-board-of-directors></app-board-of-directors>
+  </div>
 </section>
