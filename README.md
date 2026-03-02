@@ -123,7 +123,7 @@ aws configure
 # Set environment variables (replace with your actual values)
 export AWS_ACCESS_KEY_ID=your-access-key-id
 export AWS_SECRET_ACCESS_KEY=your-secret-access-key
-export AWS_DEFAULT_REGION=us-west-2
+export AWS_DEFAULT_REGION=ca-central-1
 ```
 
 ### Step 2: Install AWS CDK
@@ -183,51 +183,41 @@ When you make changes to the GitHub codebase, you need to push these changes to 
 ### Manual S3 Sync Commands
 
 ```bash
+# Name S3 bucket
+export CASTAWAYS_FC_DIST_BUCKET=castaways-public
+
+# Build dist
+yarn build
+
+# Remove existing dist from the bucket
+aws s3 rm s3://$CASTAWAYS_FC_DIST_BUCKET/ --recursive --exclude "*" --include "latest/*"
+
 # Sync local build files to S3 bucket
-aws s3 sync dist/castaways-public/ s3://your-bucket-name/ --delete
-
-# Sync with cache control headers for better performance
-aws s3 sync dist/castaways-public/ s3://your-bucket-name/ \
-  --delete \
-  --cache-control "public, max-age=31536000" \
-  --exclude "*.html" \
-  --exclude "*.json"
-
-# Sync HTML files with shorter cache (they change more often)
-aws s3 sync dist/castaways-public/ s3://your-bucket-name/ \
-  --delete \
-  --cache-control "public, max-age=3600" \
-  --include "*.html" \
-  --include "*.json"
+aws s3 sync dist s3://$CASTAWAYS_FC_DIST_BUCKET/latest
 ```
 
-### Automated Deployment Script
+### Automated Deployment
 
-Create a deployment script for easier updates:
+This repo will automatically build and deploy to the correct AWS remote environment whenever changes are merged with the `master` branch.
 
-```bash
-# Create a file called deploy.sh
-cat > deploy.sh << 'EOF'
-#!/bin/bash
+In GitHub Settings/Environments, make sure the following secrets are set correctly:
 
-echo "Building application..."
-ng build --configuration production
-
-echo "Deploying to AWS..."
-cdk deploy --require-approval never
-
-echo "Invalidating CloudFront cache..."
-aws cloudfront create-invalidation --distribution-id YOUR_DISTRIBUTION_ID --paths "/*"
-
-echo "Deployment complete!"
-EOF
-
-# Make it executable
-chmod +x deploy.sh
-
-# Run deployment
-./deploy.sh
 ```
+AWS_ACCESS_KEY_ID
+AWS_SECRET_ACCESS_KEY
+```
+
+Make sure the following variables are set correctly:
+
+```
+CASTAWAYS_FC_DIST_BUCKET
+```
+
+You can generate access keys by logging in to the AWS remote console and creating an IAM role with permissions to access S3, then generating keys for that role.
+
+There should already be a role in the AWS remote console called `github_actions` that has been given the correct permissions.
+
+If you need to cycle the access key id and secret access key, delete the old keys and regenerate new ones. Then replace the keys in GitHub Actions -> Secrets.
 
 ### Finding Your S3 Bucket Name
 
