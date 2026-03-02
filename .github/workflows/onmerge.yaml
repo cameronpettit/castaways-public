@@ -31,5 +31,5 @@ jobs:
         env:
           CASTAWAYS_FC_DIST_BUCKET: ${{ vars.CASTAWAYS_FC_DIST_BUCKET }}
         run:  |
-          aws s3 rm s3://$CASTAWAYS_FC_DIST_BUCKET/ --recursive --exclude "*" --include "latest/* &&"
+          aws s3 rm s3://$CASTAWAYS_FC_DIST_BUCKET/ --recursive --exclude "*" --include "latest/*"
           aws s3 sync dist s3://$CASTAWAYS_FC_DIST_BUCKET/latest'
